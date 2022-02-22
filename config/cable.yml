@@ -1,0 +1,13 @@
+development:
+  adapter: redis
+  url: redis://localhost:6379/1
+  channel_prefix: redisbd
+  password: 123123
+
+test:
+  adapter: test
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  channel_prefix: notifications_action_cable_production
